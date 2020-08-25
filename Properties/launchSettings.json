@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "copyOverSameFileNames": {
+      "commandName": "Project",
+      "commandLineArgs": "\"C:\\work\\ies\\code\\Milo\\dev\\Dlls\\IES.Foundation\\quickserver.cs\" \"C:\\work\\ies\\code\\Milo\\dev\""
+    }
+  }
+}
