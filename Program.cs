@@ -16,8 +16,11 @@ namespace copyOverSameFileNames
             var srcFn = Path.GetFullPath(args[0]);
             // fix casing
             var srcFolder = Path.GetDirectoryName(srcFn);
-            var srcFixCase = Directory.GetFiles(srcFolder, Path.GetFileName(srcFn))[0];
-            srcFn = srcFixCase;
+            try {
+                var srcFixCase = Directory.GetFiles(srcFolder, Path.GetFileName(srcFn))[0];
+                srcFn = srcFixCase;
+            }catch {}
+
             if (!File.Exists(srcFn)) {
                 Console.WriteLine("Missing file " + srcFn);
                 return;
@@ -27,7 +30,7 @@ namespace copyOverSameFileNames
                 Console.WriteLine("Missing folder " + args[1]);
                 return;
             }
-
+            Console.WriteLine("Copying from " + srcFn);
             
             Console.WriteLine($"searching for {Path.GetFileName(srcFn)}...");
             foreach (var destFileName in findFiles(Path.GetFileName(srcFn), args[1])) {
